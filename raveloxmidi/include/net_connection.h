@@ -1,22 +1,22 @@
 /*
-   This file is part of raveloxmidi.
-
-   Copyright (C) 2014 Dave Kelly
-
-   This program is free software; you can redistribute it and/or modify
-   it under the terms of the GNU General Public License as published by
-   the Free Software Foundation; either version 3 of the License, or
-   (at your option) any later version.
-
-   This program is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
-   GNU General Public License for more details.
-
-   You should have received a copy of the GNU General Public License
-   along with this program; if not, write to the Free Software Foundation,
-   Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA 
-*/
+ This file is part of raveloxmidi.
+ 
+ Copyright (C) 2014 Dave Kelly
+ 
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 3 of the License, or
+ (at your option) any later version.
+ 
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software Foundation,
+ Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA 
+ */
 
 #ifndef NET_CONNECTION_H
 #define NET_CONNECTION_H
@@ -29,16 +29,16 @@
 #define MAX_CTX 8
 
 typedef struct net_ctx_t {
-	uint8_t		used;
-	uint32_t	ssrc;
-	uint32_t	send_ssrc;
-	uint32_t	initiator;
-	uint32_t	seq;
-	uint16_t	control_port;
-	uint16_t	data_port;
-	time_t		start;
-	char * 		ip_address;
-	journal_t	*journal;
+    uint8_t		used;
+    uint32_t	ssrc;
+    uint32_t	send_ssrc;
+    uint32_t	initiator;
+    uint32_t	seq;
+    uint16_t	control_port;
+    uint16_t	data_port;
+    time_t		start;
+    char * 		ip_address;
+    journal_t	*journal;
 } net_ctx_t;
 
 void net_ctx_reset( net_ctx_t *ctx );
@@ -55,6 +55,7 @@ void net_ctx_journal_pack( uint8_t ctx_id, char **journal_buffer, size_t *journa
 void net_ctx_journal_reset( uint8_t ctx_id );
 void net_ctx_update_rtp_fields( uint8_t ctx_id, rtp_packet_t *rtp_packet);
 void net_ctx_send( int socket, uint8_t ctx_id, unsigned char *buffer, size_t buffer_len );
+void net_ctx_send_local( int socket, unsigned char *buffer, size_t buffer_len );
 void net_ctx_increment_seq( uint8_t ctx_id );
 
 #endif
