@@ -309,8 +309,8 @@ int net_socket_listener( void )
             else
             {
                 //send notes to port 5010
-                logging_printf( LOGGING_DEBUG, msg);
                 unsigned char *msg = &packet[13];
+                logging_printf( LOGGING_DEBUG, msg);
                 net_ctx_send_local( sockets[ DATA_PORT ], msg, 4 );
             }
         }
