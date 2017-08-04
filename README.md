@@ -1,3 +1,6 @@
+
+# Description
+
 See http://www.raveloxprojects.com/blog/?cat=5 for the reason I'm doing this.
 
 The original reason for writing this was to send NoteOn/NoteOff MIDI events from
@@ -21,3 +24,24 @@ Simple usage is:
 5. Those notes should register in the MIDI track.
 
 For more information, read the README file in raveloxmidi/
+
+# Compile instructions
+
+Install automake
+
+```
+sudo apt-get install automake
+```
+
+Install avahi-client
+```
+sudo apt-get install libavahi-client-dev
+```
+
+compile ravelox midi
+```
+cd pimidi/raveloxmidi
+bash autogen.sh
+./configure
+make
+```
